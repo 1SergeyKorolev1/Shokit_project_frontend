@@ -1,0 +1,111 @@
+/* Общие стили */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Заголовок */
+.menu {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c3e50; /* подходящий цвет */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: max-content;
+  text-align: center;
+}
+
+/* Карта занимает всю оставшуюся часть страницы */
+#map {
+  height: 100vh;
+  width: 100%;
+  margin-top: 0; /* чтобы не было отступов */
+}
+
+/* Общий стиль для кнопки "Зарядить" */
+.charger-button {
+  background-color: #4caf50; /* зеленый цвет */
+  color: white;
+  padding: 8px 16px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.charger-button:hover {
+  background-color: #45a049; /* немного темнее при наведении */
+}
+
+/* styles.css */
+
+.charger-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.charger-button:hover {
+  background-color: #45a049;
+}
+
+/* Всплывающее окно */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+.popup h3 {
+  margin-top: 0;
+}
+
+.popup button {
+  margin-top: 10px;
+}

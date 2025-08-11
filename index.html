@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ShOKiT</title>
+    <!-- Подключение Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Подключение собственного стиля -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <h2>ShOKiT</h2>
+      <!-- Баланс ⚡ -->
+      <span id="volt-balance" style="margin-left: 10px">0</span>
+      <span
+        id="volt-display"
+        style="margin-left: 10px; cursor: pointer"
+        onclick="window.showVoltInfo()"
+        >⚡</span
+      >
+      <!-- Баланс 🔋 -->
+      <span id="kilovat-balance" style="margin-left: 20px">0</span>
+      <span
+        id="kilovat-display"
+        style="margin-left: 10px; cursor: pointer"
+        onclick="window.showKilovatInfo()"
+        >🔋</span
+      >
+    </div>
+    <!-- Контеймент для карты -->
+    <div id="map"></div>
+    <!-- Подключение Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Подключение вашего JS файла -->
+    <script src="map.js" type="module"></script>
+    <script src="coin.js" type="module"></script>
+    <script src="popup.js" type="module"></script>
+    <script type="module">
+      import * as map_ from "./map.js";
+      import * as coin from "./coin.js";
+      import {
+        showVoltInfo,
+        showKilovatInfo,
+        exchangeVolt,
+        performExchange,
+        updateDisplay,
+      } from "./popup.js";
+
+      // делаем функции глобальными для вызова из inline onclick
+      window.stopCharging = map_.stopCharging;
+      window.startCharging = map_.startCharging;
+      window.coin = coin;
+      window.showVoltInfo = showVoltInfo;
+      window.showKilovatInfo = showKilovatInfo;
+      window.exchangeVolt = exchangeVolt;
+      window.performExchange = performExchange;
+      window.updateDisplay = () => {
+        document.getElementById("volt-balance").innerText =
+          coin.getVoltBalance();
+        document.getElementById("kilovat-balance").innerText =
+          coin.getKilovatBalance();
+      };
+
+      // Изначально показываем нули
+      window.updateDisplay();
+    </script>
+  </body>
+</html>
